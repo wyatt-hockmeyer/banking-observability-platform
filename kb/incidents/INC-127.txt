@@ -1,0 +1,13 @@
+HISTORICAL INCIDENT INC-127
+Type: Authentication failure with application error spike
+Start: 2025-10-25 18:01:00
+End: 2025-10-25 18:06:00
+Incident minutes: 2
+Day type: Weekend | Period: Off-peak hours
+Lowest auth success rate: 96.56 percent
+Highest application errors per minute: 6
+Average CPU: 39.8 percent | Average processing time: 107.6 ms
+Average success rates: NEFT 99.71, IMPS 99.4, RTGS 99.24
+IsolationForest flagged minutes: 2 of 2
+Issue logs within 5 minutes: Payment channel failures (NEFT, IMPS, RTGS) (2), Network timeouts (2), Disk I/O bottleneck (1), 
+Applicable runbook: Authentication Failure with Application Error Spike

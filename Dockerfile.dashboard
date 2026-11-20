@@ -1,0 +1,17 @@
+# Dockerfile.dashboard: Streamlit dashboard (calls the API over the Compose network)
+FROM python:3.12-slim
+
+# Work inside /app in the container
+WORKDIR /app
+
+# The dashboard only needs these three packages
+RUN pip install --no-cache-dir streamlit requests pandas==3.1.1
+
+# Dashboard code
+COPY dashboard.py .
+
+# Streamlit port
+EXPOSE 8501
+
+# Start Streamlit, listening on all interfaces
+CMD ["streamlit", "run", "dashboard.py", "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true"]

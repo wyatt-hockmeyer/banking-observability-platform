@@ -1,0 +1,32 @@
+# Python 3.12 packages for the Banking Operations Observability Platform
+# Versions match the virtual environment the models were trained in
+
+# Data and visualization (Tasks 1 and 2 notebooks)
+pandas==3.1.1
+numpy==2.5.5
+matplotlib==3.11.2
+seaborn==0.13.2
+ipykernel==7.4.0
+
+# Machine learning (Tasks 2 and 3)
+scikit-learn==1.9.1
+imbalanced-learn==0.14.2
+joblib==1.6.0
+nltk==3.10.4
+
+# RAG and LangGraph assistant (Task 3)
+python-dotenv==1.2.4
+openai==2.54.0
+langgraph==0.3.0
+langchain==0.3.30
+langchain-core==0.3.86
+langchain-openai==0.3.35
+langchain-community==0.3.31
+langchain-chroma==0.2.6
+chromadb==1.5.9
+
+# API and dashboard (Task 4)
+fastapi
+uvicorn
+requests==2.34.2
+streamlit

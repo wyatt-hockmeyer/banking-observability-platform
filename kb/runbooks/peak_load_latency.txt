@@ -1,0 +1,9 @@
+RUNBOOK: Peak-Load Processing Latency
+Issue category: Infrastructure
+Signature: From 09:00 to 17:59, weekday CPU runs 65 to 77 percent and average processing time rises to about 400 ms, compared with a 100 ms off-peak floor. Weekends peak near 50 percent CPU and 200 ms.
+Evidence: Processing time correlates 0.99 with CPU, 0.97 with memory, and 0.89 with transaction volume. CPU never passed 77.5 percent, so the system has not saturated.
+Business impact: Slower payments during business hours, when customer volume is highest.
+Likely root causes: Predictable daily demand.
+Diagnostic steps: 1. Compare current CPU and latency with the forecast. 2. Check DB connection pool usage and network throughput for the same minutes.
+Remediation: Use the CPU and latency forecasts to scale capacity before 09:00 and release it after 18:00. Alert if CPU forecast exceeds 80 percent.
+Escalation: Capacity planning team if peak latency exceeds 450 ms for 15 minutes.

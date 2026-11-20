@@ -1,0 +1,8 @@
+RUNBOOK: Container Restarts Due to Out of Memory
+Issue category: Infrastructure
+Log signature: Container restarting due to OOM.
+Business impact: In-flight transactions on that container fail or retry.
+Likely root causes: Memory limits set too low, memory leaks, or traffic spikes.
+Diagnostic steps: 1. Check memory_usage before the restart. 2. Check the container memory limit. 3. Check for a recent release.
+Remediation: Raise the memory limit, fix the leak, and add a replica for peak hours.
+Escalation: Application owner after 3 restarts of the same container in one hour.

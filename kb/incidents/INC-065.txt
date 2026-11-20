@@ -1,0 +1,13 @@
+HISTORICAL INCIDENT INC-065
+Type: Authentication failure with application error spike
+Start: 2025-10-22 20:57:00
+End: 2025-10-22 21:00:00
+Incident minutes: 2
+Day type: Weekday | Period: Off-peak hours
+Lowest auth success rate: 97.11 percent
+Highest application errors per minute: 8
+Average CPU: 40.2 percent | Average processing time: 116.3 ms
+Average success rates: NEFT 96.08, IMPS 98.78, RTGS 99.86
+IsolationForest flagged minutes: 2 of 2
+Issue logs within 5 minutes: Network timeouts (2), Disk I/O bottleneck (2), Database connection pool (2), 
+Applicable runbook: Authentication Failure with Application Error Spike

@@ -1,0 +1,8 @@
+RUNBOOK: Disk I/O Bottleneck
+Issue category: Infrastructure
+Log signature: Disk I/O bottleneck detected on server.
+Business impact: Slower database writes and logging, which raises processing time.
+Likely root causes: Backup jobs, log volume growth, or a degraded disk.
+Diagnostic steps: 1. Check whether a backup or batch job was running. 2. Check disk health on the named server.
+Remediation: Move heavy I/O jobs off peak hours, rotate logs, and replace degraded disks.
+Escalation: Infrastructure team if the same server repeats within one day.

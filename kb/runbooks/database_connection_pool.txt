@@ -1,0 +1,8 @@
+RUNBOOK: Database Connection Pool Exhausted
+Issue category: Infrastructure
+Log signature: Database connection pool exhausted.
+Business impact: Transactions wait for a connection or fail, which raises processing time.
+Likely root causes: Long-running queries, connection leaks, or a pool sized below peak demand.
+Diagnostic steps: 1. Check db_connection_pool_usage for the window. 2. Identify long-running queries. 3. Check whether a database backup overlapped the window.
+Remediation: Kill blocking queries, raise the pool size for peak hours, and schedule backups outside 09:00 to 17:59.
+Escalation: Database administrator on repeat events within one hour.

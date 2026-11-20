@@ -1,0 +1,8 @@
+RUNBOOK: Payment Channel Failures (NEFT, IMPS, RTGS)
+Issue category: Business KPI
+Log signature: NEFT transaction failed with gateway timeout. IMPS transaction failed with invalid account. RTGS transaction failed with insufficient funds.
+Business impact: Failed customer payments and lower channel success rates. RTGS failures involve high-value transfers.
+Likely root causes: Gateway timeouts point to the NEFT clearing interface or its network path. Invalid account points to beneficiary validation data or customer input. Insufficient funds is a customer-side decline, not a system fault.
+Diagnostic steps: 1. Split failures by channel and reason. 2. Compare with channel success rates in the same window (normal: NEFT 96 to 100, IMPS 98 to 100, RTGS 99 to 100 percent). 3. For gateway timeouts, check network timeout and gateway SLA logs.
+Remediation: Route gateway timeouts to the standby gateway. Correct beneficiary validation data. Exclude insufficient-funds declines from system failure alerts.
+Escalation: Payments operations if a channel falls below its normal band for 5 minutes.

@@ -1,0 +1,8 @@
+RUNBOOK: Payment Gateway Response Time Exceeded SLA
+Issue category: Business KPI
+Log signature: Payment gateway response time exceeded SLA.
+Business impact: Slow payment confirmations and possible timeouts.
+Likely root causes: Gateway vendor degradation or network latency to the gateway.
+Diagnostic steps: 1. Check network timeout logs in the same window. 2. Check the vendor status page. 3. Compare with NEFT gateway timeout failures.
+Remediation: Route traffic to the standby gateway and notify the vendor.
+Escalation: Vendor management after 3 SLA breaches in one hour.

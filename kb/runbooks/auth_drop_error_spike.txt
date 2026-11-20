@@ -1,0 +1,9 @@
+RUNBOOK: Authentication Failure with Application Error Spike
+Issue category: Business KPI (customer impact) with an application-layer cause
+Signature: auth_success_rate falls below 98 percent (normal band 98.5 to 99.5) in the same minute application errors reach 6 or more per minute.
+History: 175 minutes over 7 days, spread across all hours and days. Not linked to CPU, memory, or transaction volume.
+Business impact: Customers cannot log in or authorize payments. Failed logins drive abandoned transactions and contact-center volume.
+Likely root causes: Identity provider or token service faults, a defect in a recent application release, or a failing dependency in the authentication path. Capacity is not the cause.
+Diagnostic steps: 1. Confirm customer authentication failed logs in the same window. 2. Check API rate limiting and network timeout logs for a shared dependency. 3. Check deployments in the prior 24 hours. 4. Check identity provider health.
+Remediation: Fail over to the secondary authentication node, roll back the most recent release if it lines up with the first spike, and clear the token cache.
+Escalation: Page the on-call application owner at once. The incident classifier flags these minutes automatically.

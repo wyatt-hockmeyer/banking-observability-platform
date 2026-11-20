@@ -1,0 +1,8 @@
+RUNBOOK: Customer Authentication Failures (log level)
+Issue category: Business KPI
+Log signature: Customer authentication failed for user.
+Business impact: Customers locked out of digital channels.
+Likely root causes: Wrong credentials (expected), identity provider faults, or credential-stuffing attacks.
+Diagnostic steps: 1. Compare failure volume with auth_success_rate. 2. Look for many failures from few sources. 3. Check whether the minute is a flagged incident.
+Remediation: Apply the Authentication Failure with Application Error Spike runbook for flagged incidents. Block abusive sources for attack patterns.
+Escalation: Security operations for suspected credential stuffing.

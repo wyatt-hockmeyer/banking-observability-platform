@@ -1,0 +1,8 @@
+RUNBOOK: CPU and Memory Pressure
+Issue category: Infrastructure
+Log signature: High CPU utilization detected on server. Memory usage approaching threshold.
+Business impact: Higher processing time and risk of container restarts.
+Likely root causes: Peak-hour demand, runaway batch jobs, or memory leaks after a release.
+Diagnostic steps: 1. Check whether the alert falls inside 09:00 to 17:59. 2. Compare with the CPU and memory forecasts. 3. Look for container OOM restart logs on the same server.
+Remediation: Scale out the affected service, move batch jobs out of peak hours, and restart leaking processes during a low-volume window.
+Escalation: Platform engineering if memory stays above 65 percent outside peak hours.

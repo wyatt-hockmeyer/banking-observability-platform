@@ -1,0 +1,6 @@
+HISTORICAL PATTERN: Load Anomalies Detected by IsolationForest Only
+Minutes flagged: 55
+Share in peak hours: 100.0 percent
+Average CPU: 72.2 percent | Average processing time: 421.1 ms
+Includes the single service uptime dip: 0
+Applicable runbook: Peak-Load Processing Latency

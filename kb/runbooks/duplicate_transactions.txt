@@ -1,0 +1,8 @@
+RUNBOOK: Duplicate Transactions Detected
+Issue category: Business KPI
+Log signature: Duplicate transaction detected.
+Business impact: Risk of double charges and reconciliation errors.
+Likely root causes: Client retries after timeouts, or missing idempotency checks.
+Diagnostic steps: 1. Check for network timeouts or gateway delays just before the duplicates. 2. Confirm whether the duplicate was blocked or posted.
+Remediation: Reverse any posted duplicates and enforce idempotency keys on retries.
+Escalation: Reconciliation team for any posted duplicate.

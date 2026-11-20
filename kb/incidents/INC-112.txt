@@ -1,0 +1,13 @@
+HISTORICAL INCIDENT INC-112
+Type: Authentication failure with application error spike
+Start: 2025-10-24 23:11:00
+End: 2025-10-24 23:11:00
+Incident minutes: 1
+Day type: Weekday | Period: Off-peak hours
+Lowest auth success rate: 97.38 percent
+Highest application errors per minute: 6
+Average CPU: 40.2 percent | Average processing time: 116.6 ms
+Average success rates: NEFT 97.3, IMPS 99.77, RTGS 99.67
+IsolationForest flagged minutes: 0 of 1
+Issue logs within 5 minutes: Customer authentication (2), 
+Applicable runbook: Authentication Failure with Application Error Spike

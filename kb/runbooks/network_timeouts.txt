@@ -1,0 +1,8 @@
+RUNBOOK: Critical Network Timeouts
+Issue category: Infrastructure
+Log signature: Critical network timeout on server with latency value.
+Business impact: Payment gateway calls and authentication calls time out, which shows up as NEFT gateway timeouts and SLA breaches.
+Likely root causes: Packet loss, saturated links, DNS issues, or a failing network device.
+Diagnostic steps: 1. Check network_throughput_mbps in the window. 2. Check for matching gateway SLA and NEFT timeout logs. 3. Trace the route to the affected server.
+Remediation: Fail over to the secondary network path and open a ticket with the network provider.
+Escalation: Network operations if timeouts repeat on the same server within 15 minutes.

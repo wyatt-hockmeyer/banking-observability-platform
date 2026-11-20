@@ -1,0 +1,44 @@
+# docker-compose.yml: runs the API and dashboard together
+# Start with: docker compose up --build
+
+services:
+
+  # FastAPI backend
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: banking-observability-api:v1
+    ports:
+      - "8000:8000"
+    # OPENAI_API_KEY comes from the local .env file (never copied into the image)
+    env_file:
+      - .env
+    # Saved models, data, and the Chroma vector database stay on the Mac and are mounted in
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./chroma_db:/app/chroma_db
+    # Healthy once /health answers (the API loads models at startup)
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+
+  # Streamlit dashboard
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    image: banking-observability-dashboard:v1
+    ports:
+      - "8501:8501"
+    # Inside Compose, the API is reached by its service name
+    environment:
+      - API_URL=http://api:8000
+    # Wait until the API is healthy before starting
+    depends_on:
+      api:
+        condition: service_healthy

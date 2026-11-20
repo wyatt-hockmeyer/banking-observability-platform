@@ -1,0 +1,8 @@
+RUNBOOK: API Rate Limit Exceeded
+Issue category: Infrastructure
+Log signature: API rate limit exceeded for endpoint /api/transactions.
+Business impact: Partner and channel requests are rejected and must retry.
+Likely root causes: A partner retry storm, a misconfigured client, or limits set below peak demand.
+Diagnostic steps: 1. Identify the calling client. 2. Compare request volume with transaction_volume_per_hour.
+Remediation: Throttle the offending client, apply backoff on retries, and review limits for peak hours.
+Escalation: API platform owner if legitimate traffic is being rejected.
